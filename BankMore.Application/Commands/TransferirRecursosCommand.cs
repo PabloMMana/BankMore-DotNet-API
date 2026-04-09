@@ -1,0 +1,16 @@
+﻿using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BankMore.Application.Commands
+{
+    public class TransferirRecursosCommand : IRequest<bool>
+    {
+        public string ContaOrigem { get; set; }
+        public string ContaDestino { get; set; }
+        public decimal Valor { get; set; }
+    }
+}
