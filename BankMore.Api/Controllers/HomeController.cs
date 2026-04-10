@@ -1,12 +1,15 @@
 using BankMore.Application.Commands;
 using BankMore.Application.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankMore.Api.Controllers
 {
     [ApiController]
+
     [Route("api/[controller]")]
+    
     public class ContaCorrenteController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -69,6 +72,7 @@ namespace BankMore.Api.Controllers
 
         [HttpGet("ativas")]
         [Tags("4. Lista de Ativas")]
+     
         public async Task<IActionResult> ListarAtivas()
         {
            
@@ -89,7 +93,7 @@ namespace BankMore.Api.Controllers
             return Ok("Conta desativada com sucesso.");
         }
 
-        [HttpPost("transferir")]
+        [HttpPost("transferir")]       
         [Tags("6. Transferir")]
         public async Task<IActionResult> Transferir([FromBody] EfetuarTransferenciaCommand command)
         {
