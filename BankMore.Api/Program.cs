@@ -1,4 +1,4 @@
-using BankMore.Application.Handlers;
+ï»¿using BankMore.Application.Handlers;
 using BankMore.Application.Queries;
 using BankMore.Domain.Interfaces;
 using BankMore.Infrastructure.Repositories;
@@ -14,7 +14,7 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-#region ?? Serviços
+#region ðŸ”§ ServiÃ§os
 
 // MediatR
 builder.Services.AddMediatR(cfg =>
@@ -23,7 +23,7 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(ObterContasAtivasQuery).Assembly);
 });
 
-// Injeção de Dependência
+// InjeÃ§Ã£o de DependÃªncia
 builder.Services.AddScoped<IContaCorrenteRepository, ContaCorrenteRepository>();
 builder.Services.AddScoped<ISecurityService, SecurityService>();
 builder.Services.AddScoped<TokenService>();
@@ -69,7 +69,8 @@ builder.Services.AddSwaggerGen(options =>
 
 #endregion
 
-#region ?? Autenticação JWT
+
+#region ðŸ” AutenticaÃ§Ã£o JWT
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -93,7 +94,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 var app = builder.Build();
 
-#region ?? Pipeline
+
+#region ðŸš€ Pipeline
 
 if (app.Environment.IsDevelopment())
 {
